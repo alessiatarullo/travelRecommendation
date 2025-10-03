@@ -42,8 +42,21 @@ i {
 
 .hero {
   background-image: url('hero.jpg');
-  background-size: cover;       /* riempie tutto il div */
-  background-position: center;  /* centra l’immagine */
-  width: 100vw;                 /* larghezza viewport */
-  height: 100vh;                /* altezza viewport */
+  background-size: cover;       
+  background-position: center;  
+  width: 100vw;               
+  height: 100vh;
+  object-fit: cover;
+  opacity: 0.6;              
 }
+
+#heroh1 {
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 4rem;
+    text-align: left;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+  }
