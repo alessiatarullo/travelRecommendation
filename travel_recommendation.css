@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+  }
+
+nav {
+    position: absolute;  
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: rgba(245, 245, 245, 0.8); /* trasparenza */
+    z-index: 10;          
+  }
+
+nav a {
+  text-decoration: none;
+  color: black;     
+  font-weight: bold;
+  transition: background 0.3s, color 0.3s; 
+}
+
+nav a:hover {
+  color: #555555;    
+}
+
+#logo {
+    display: flex;
+  justify-content: space-between;
+  align-items: center;    
+}
+
+i {
+    font-size: 30px;
+}
+
+.hero {
+  background-image: url('hero.jpg');
+  background-size: cover;       /* riempie tutto il div */
+  background-position: center;  /* centra l’immagine */
+  width: 100vw;                 /* larghezza viewport */
+  height: 100vh;                /* altezza viewport */
+}
