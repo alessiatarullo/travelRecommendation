@@ -112,7 +112,7 @@ body.contact #searchForm {
     margin-bottom: 100px;
   }
 
-  #bookBtn, #submitBtn {
+#submitBtn, #visitBtn {
     padding: 10px 25px;
     background-color: white;
     color: #333;
@@ -160,3 +160,72 @@ body.contact #searchForm {
     font-family: 'Roboto', sans-serif; 
     color: rgba(255, 255, 255, 0.7);
 }
+
+#searchForm {
+  display: flex;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.8); /* sfondo leggermente opaco */
+  padding: 5px 10px;
+  border-radius: 8px;
+  align-items: center;
+}
+
+/* Input */
+#searchForm input[type="search"] {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  flex: 1; 
+  outline: none;
+  background: rgba(255,255,255,0.9);
+  color: #333;
+}
+
+#searchForm input::placeholder {
+  color: #666;
+  font-style: italic;
+}
+
+#searchForm button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #333; 
+  color: white;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+#searchForm button:hover {
+  background-color: #555;
+}
+
+  .result-card {
+    background: rgba(255,255,255,0.8);
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  
+  .result-card img {
+    width: 100%;
+    border-radius: 6px;
+  }
+
+  #results h3 {
+    color: black;
+    font-size: 1.5rem; /* o quanto vuoi */
+    font-weight: 700;
+    margin: 10px 0;
+  }
+
+  #results p {
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    text-shadow: none;
+  }
