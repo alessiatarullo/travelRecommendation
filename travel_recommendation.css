@@ -17,6 +17,7 @@ body {
     align-items: center;
     background-color: rgba(245, 245, 245, 0.8);
     z-index: 10;
+    height: 70px;
   }
   
   nav a {
@@ -40,25 +41,24 @@ body {
     font-size: 30px;
   }
   
-  .hero {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                url('hero.jpg') center/cover no-repeat;
-    box-sizing: border-box;
-    overflow: hidden;
-  }
+.hero {
+  min-height: 100vh; /* cresce se il contenuto è più alto */
+  width: 100%;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+              url('hero.jpg') center top / cover no-repeat;
+  box-sizing: border-box;
+  overflow: hidden;
+}
   
-  .hero-container {
-    position: absolute;
-    top: 50%;
-    left: 5%;
-    transform: translateY(-50%);
-    display: flex;
-    align-items: flex-start;
-    gap: 40px; /* più spazio tra icone e testo */
-  }
+.hero-container {
+  position: relative;
+  top: 0;
+  left: 5%;
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  padding-top: 150px; 
+}
   
   .social-icons {
     display: flex;
@@ -98,6 +98,11 @@ body {
     line-height: 1.5;
   }
 
+  .hero-team {
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
+
   #bookbtn {
     padding: 10px 25px;
     background-color: white;
@@ -108,4 +113,15 @@ body {
     cursor: pointer;
     margin-top: 20px;
   }
-  
+
+  .team-member {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* spazio tra icona e testo */
+  margin-bottom: 15px;
+}
+
+.team-member i {
+  color: #fff;       /* colore icona, cambia se vuoi */
+  font-size: 1.2rem; /* dimensione icona */
+}
