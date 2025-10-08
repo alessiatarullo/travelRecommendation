@@ -2,10 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchForm = document.getElementById("searchForm");
   const searchInput = document.getElementById("searchInput");
   const clearBtn = document.getElementById("clearBtn");
-
-const resultsContainer = document.createElement("div");
-resultsContainer.id = "results";
-document.body.appendChild(resultsContainer);
+  const resultsContainer = document.getElementById("results");
 
  async function loadData() {
     const response = await fetch("travel_recommendation_api.json");
