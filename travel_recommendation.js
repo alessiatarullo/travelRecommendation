@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const clearBtn = document.getElementById("clearBtn");
     const resultsContainer = document.getElementById("results");
   
-    // Seleziona h1 e p della hero
+    // Seleziona H1 e P della hero
     const heroH1 = document.querySelector(".hero-text h1");
     const heroP = document.querySelector(".hero-text p");
   
@@ -18,19 +18,22 @@ document.addEventListener("DOMContentLoaded", () => {
       resultsContainer.innerHTML = ""; // pulisce risultati precedenti
   
       if (results.length === 0) {
-          resultsContainer.innerHTML = "<p>No result found.</p>";
-          return;
+        resultsContainer.innerHTML = "<p>No result found.</p>";
+        return;
       }
   
       results.forEach(item => {
         const card = document.createElement("div");
         card.classList.add("result-card");
   
+        // Inserisce immagine solo se presente
+        const imgHTML = item.imageUrl ? `<img src="${item.imageUrl}" alt="${item.name}">` : "";
+  
         card.innerHTML = `
-          <img src="${item.imageUrl}" alt="${item.name}">
-          <h3>${item.name}</h3>
+          ${imgHTML}
+          <h3 class="card-title">${item.name}</h3>
           <p>${item.description}</p>
-          <button id="visitBtn">Visit</button>
+          <button class="visit-btn">Visit</button>
         `;
   
         resultsContainer.appendChild(card);
@@ -43,28 +46,51 @@ document.addEventListener("DOMContentLoaded", () => {
   
       let results = [];
   
-      data.countries.forEach(country => {
-        if (country.name.toLowerCase().includes(query)) {
-          results.push({ name: country.name, imageUrl: "", description: "Country" });
-        }
-        country.cities.forEach(city => {
-          if (city.name.toLowerCase().includes(query)) {
-            results.push(city);
+      // Cerca per tipo: beach, temple, country
+      if (query === "beach") {
+        results = data.beaches;
+      } else if (query === "temple") {
+        results = data.temples;
+      } else if (query === "country") {
+        results = data.countries.map(c => ({ 
+          name: c.name, 
+          imageUrl: c.imageUrl || "", 
+          description: "Country" 
+        }));
+      } else {
+        // Ricerca per nome
+        data.countries.forEach(country => {
+          const countryNameLower = country.name.toLowerCase();
+  
+          // Aggiungi solo le città che corrispondono
+          country.cities.forEach(city => {
+            if (city.name.toLowerCase().includes(query)) {
+              results.push(city);
+            }
+          });
+  
+          // Aggiungi il paese solo se il nome non corrisponde esattamente alla query
+          if (countryNameLower.includes(query) && countryNameLower !== query) {
+            results.push({ 
+              name: country.name, 
+              imageUrl: country.imageUrl || "", 
+              description: "Country" 
+            });
           }
         });
-      });
   
-      data.temples.forEach(temple => {
-        if (temple.name.toLowerCase().includes(query)) {
-          results.push(temple);
-        }
-      });
+        data.temples.forEach(temple => {
+          if (temple.name.toLowerCase().includes(query)) {
+            results.push(temple);
+          }
+        });
   
-      data.beaches.forEach(beach => {
-        if (beach.name.toLowerCase().includes(query)) {
-          results.push(beach);
-        }
-      });
+        data.beaches.forEach(beach => {
+          if (beach.name.toLowerCase().includes(query)) {
+            results.push(beach);
+          }
+        });
+      }
   
       // Nascondi hero H1 e P
       heroH1.style.display = "none";
