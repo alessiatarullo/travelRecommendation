@@ -5,6 +5,15 @@ body {
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
   }
+
+body.about #searchForm,
+body.contact #searchForm {
+  display: none;
+}
+
+#searchFormPlaceholder {
+  width: 250px; /* stessa larghezza del form nella home */
+}
   
   nav {
     position: absolute;
