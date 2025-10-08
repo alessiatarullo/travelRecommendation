@@ -103,7 +103,7 @@ body {
     margin-bottom: 100px;
   }
 
-  #bookbtn {
+  #bookBtn, #submitBtn {
     padding: 10px 25px;
     background-color: white;
     color: #333;
@@ -124,4 +124,30 @@ body {
 .team-member i {
   color: #fff;       /* colore icona, cambia se vuoi */
   font-size: 1.2rem; /* dimensione icona */
+}
+
+.hero-text form {
+    display: flex;
+    flex-direction: column;  /* allinea tutto verticalmente */
+    gap: 15px;               /* spazio tra label, input e textarea */
+    margin-top: 20px;
+    max-width: 450px;        /* larghezza massima del form */
+  }
+
+  .hero-text input,
+  .hero-text textarea {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.3); /* bianco semitrasparente */
+    color: #fff; /* testo bianco, così si legge sopra la hero */
+    backdrop-filter: blur(5px); /* opzionale, effetto glassmorphism */
+  }
+
+.hero-text textarea::placeholder {
+    font-family: 'Roboto', sans-serif; 
+    color: rgba(255, 255, 255, 0.7);
 }
