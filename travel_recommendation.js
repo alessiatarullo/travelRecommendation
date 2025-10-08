@@ -18,9 +18,13 @@ document.addEventListener("DOMContentLoaded", () => {
       resultsContainer.innerHTML = ""; // pulisce risultati precedenti
   
       if (results.length === 0) {
-        resultsContainer.innerHTML = "<p>No result found.</p>";
+        const p = document.createElement("p");
+        p.classList.add("no-result");
+        p.textContent = "No result found.";
+        resultsContainer.appendChild(p);
         return;
       }
+    
   
       results.forEach(item => {
         const card = document.createElement("div");
